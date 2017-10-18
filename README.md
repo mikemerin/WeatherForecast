@@ -1,5 +1,7 @@
 # Weather app
 
+![Product](https://imgur.com/vRmu12W.png)
+
 There are a number of free APIs available with weather forecasts. Your goal is to use one to create an app that shows the weather forecast for New York.
 
 You will have three hours to work on the assignment.  At the end of this time, please submit all code, project files, etc. that you have created.
