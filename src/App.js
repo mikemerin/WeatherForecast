@@ -5,6 +5,7 @@ import './App.css'
 
 import { ForecastAdapter } from './adapters'
 import { Days } from './components/Days'
+import { Graph } from './components/Graph'
 
 
 export default class App extends Component {
@@ -57,7 +58,8 @@ export default class App extends Component {
           </header>
           <h4> Current temperatures are in º{ this.state.scale } <Button icon='exchange' size='mini' onClick={ this.handleScaleChange } /></h4>
         </div>
-        <Days days={ this.state.days } scale={ this.state.scale }/>
+        <Days days={ this.state.days } scale={ this.state.scale } />
+        <Graph days={ this.state.days } scale={ this.state.scale } />
       </div>
     );
   }

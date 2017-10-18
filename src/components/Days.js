@@ -12,19 +12,25 @@ export const Days = (props) => {
 
       const minTempF = days[day].minTempF
       const minTempC = days[day].minTempC
+      const avgTempF = days[day].avgTempF
+      const avgTempC = days[day].avgTempC
       const maxTempF = days[day].maxTempF
       const maxTempC = days[day].maxTempC
 
       const minTemp = scale === "F" ? `${ minTempF }ºF` : `${ minTempC }ºC`
+      const avgTemp = scale === "F" ? `${ avgTempF }ºF` : `${ avgTempC }ºC`
       const maxTemp = scale === "F" ? `${ maxTempF }ºF` : `${ maxTempC }ºC`
 
-      const icon = `./icons/${days[day].icon}`
+      const icon = `icons/${days[day].icon}`
+
+      console.log(icon)
 
       return (
         <Grid.Column key={day} >
           <strong>{ date }</strong><br /><br />
           <img className='image' alt={ `${days[day].icon}`.match(/(.+)\./)[1] } src={ icon } /><br /><br />
           Low: { maxTemp }<br />
+          Avg: { avgTemp }<br />
           High: { minTemp }<br />
         </Grid.Column>
       )
