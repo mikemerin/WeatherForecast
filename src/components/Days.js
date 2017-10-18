@@ -21,9 +21,7 @@ export const Days = (props) => {
       const avgTemp = scale === "F" ? `${ avgTempF }ºF` : `${ avgTempC }ºC`
       const maxTemp = scale === "F" ? `${ maxTempF }ºF` : `${ maxTempC }ºC`
 
-      const icon = `icons/${days[day].icon}`
-
-      console.log(icon)
+      const icon = require(`../icons/${days[day].icon}`)
 
       return (
         <Grid.Column key={day} >
