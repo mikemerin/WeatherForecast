@@ -11,13 +11,13 @@ export default class App extends Component {
     super(props, context)
     this.state = {
       location: '',
-      days: ''
+      days: '',
+      scale: "F"
     }
   }
 
   componentWillMount() {
     console.log("mounting");
-    // debugger
     ForecastAdapter.all().then(data => {
       const response = data.response[0]
       this.setState({
@@ -40,10 +40,14 @@ export default class App extends Component {
     const latlong = `Lat: ${ lat } Long: ${ long }`
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Weather Forecast for - { latlong }</h1>
-        </header>
+      <div>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">Weather Forecast for - { latlong }</h1>
+          </header>
+          <h4> Current temperatures are in º{ this.state.scale } (change)</h4>
+        </div>
+        <Days days={ this.state.days } scale={ this.state.scale }/>
       </div>
     );
   }
