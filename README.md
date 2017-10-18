@@ -2,6 +2,11 @@
 
 ![Product](https://imgur.com/vRmu12W.png)
 
+To use, first type in `npm install` then `npm start` to start the server.
+
+
+# Code Challenge
+
 There are a number of free APIs available with weather forecasts. Your goal is to use one to create an app that shows the weather forecast for New York.
 
 You will have three hours to work on the assignment.  At the end of this time, please submit all code, project files, etc. that you have created.
