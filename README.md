@@ -1,6 +1,6 @@
 # Weather app
 
-![Product](https://imgur.com/vRmu12W.png)
+![Product](https://imgur.com/dW8rmpF.png)
 
 To use, first type in `npm install` then `npm start` to start the server.
 
