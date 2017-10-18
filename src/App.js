@@ -1,21 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+import { ForecastAdapter } from './adapters'
+import { Days } from './components/Days'
+
+
+export default class App extends Component {
+
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      location: '',
+      days: ''
+    }
+  }
+
+  componentWillMount() {
+    console.log("mounting");
+    // debugger
+    ForecastAdapter.all().then(data => {
+      const response = data.response[0]
+      this.setState({
+        location: response.loc,
+        days: response.periods
+      })
+    })
+  }
+
   render() {
+
+    var lat = this.state.location.lat
+    var long = this.state.location.long
+
+    if (!!this.state.location) {
+      lat = lat > 0 ? `${lat}ºN` : `${Math.abs(lat)}ºS`
+      long = long > 0 ? `${long}ºE` : `${Math.abs(long)}ºW`
+    }
+
+    const latlong = `Lat: ${ lat } Long: ${ long }`
+
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Weather Forecast for - { latlong }</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
 }
-
-export default App;
