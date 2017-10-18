@@ -18,12 +18,12 @@ export const Days = (props) => {
       const minTemp = scale === "F" ? `${ minTempF }ºF` : `${ minTempC }ºC`
       const maxTemp = scale === "F" ? `${ maxTempF }ºF` : `${ maxTempC }ºC`
 
-      const icon = days[day].icon
+      const icon = `./icons/${days[day].icon}`
 
       return (
         <Grid.Column key={day} >
-          <strong>{ date }</strong><br />
-          { icon }<br />
+          <strong>{ date }</strong><br /><br />
+          <img className='image' alt={ `${days[day].icon}`.match(/(.+)\./)[1] } src={ icon } /><br /><br />
           Low: { maxTemp }<br />
           High: { minTemp }<br />
         </Grid.Column>
@@ -33,11 +33,11 @@ export const Days = (props) => {
   }
 
   return (
-      <Grid columns={7} celled textAlign="center" verticalAlign="middle" >
-        <Grid.Row>
+    <Grid celled columns={7} textAlign="center" verticalAlign="middle">
+      <Grid.Row>
           { [0, 1, 2, 3, 4, 5, 6].map(x => output(x) ) }
-        </Grid.Row>
-      </Grid>
+      </Grid.Row>
+    </Grid>
   )
 
 }

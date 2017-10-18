@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import { Button } from 'semantic-ui-react'
+
+import './App.css'
 
 import { ForecastAdapter } from './adapters'
 import { Days } from './components/Days'
@@ -27,6 +29,14 @@ export default class App extends Component {
     })
   }
 
+  handleScaleChange = () => {
+    if (this.state.scale === "F") {
+      this.setState({ scale: "C" })
+    } else {
+      this.setState({ scale: "F" })
+    }
+  }
+
   render() {
 
     var lat = this.state.location.lat
@@ -45,7 +55,7 @@ export default class App extends Component {
           <header className="App-header">
             <h1 className="App-title">Weather Forecast for - { latlong }</h1>
           </header>
-          <h4> Current temperatures are in º{ this.state.scale } (change)</h4>
+          <h4> Current temperatures are in º{ this.state.scale } <Button icon='exchange' size='mini' onClick={ this.handleScaleChange } /></h4>
         </div>
         <Days days={ this.state.days } scale={ this.state.scale }/>
       </div>
